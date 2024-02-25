@@ -46,13 +46,22 @@
             margin: 0 10px;
             width: 30px;
             height: 30px;
-            line-height: 30px;
-            text-align: center;
-            font-size: 1.5rem;
-            color: #888; /* Monochrome color for social icons */
-            background-color: #333; /* Dark background for social icons */
-            border-radius: 50%;
-            text-decoration: none;
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-indent: -9999px; /* Hide text content */
+            overflow: hidden; /* Hide any overflow */
+        }
+        .instagram {
+            background-image: url('https://via.placeholder.com/30x30?text=Instagram');
+        }
+        .linkedin {
+            background-image: url('https://via.placeholder.com/30x30?text=LinkedIn');
+        }
+        .imdb {
+            background-image: url('https://via.placeholder.com/30x30?text=IMDb');
+        }
+        .email {
+            background-image: url('https://via.placeholder.com/30x30?text=Email');
         }
     </style>
 </head>
@@ -64,10 +73,10 @@
     <p>After that, but before right now, I directed a <a href="http://www.saltadocumentary.com" target="_blank">documentary</a> that premiered at a film festival in NYC.</p>
     <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZxemZuMHdidzgwNXI2cTRmanZ5cmcxNnY0ZHZ1ZjdvOHc5aXNndCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XHMthTK1EjZKjmDOyz/giphy.gif" alt="Stick figure graphic" class="stick-figure">
     <div class="social-icons">
-        <a href="https://www.instagram.com/trev_hillis/?hl=en" target="_blank">Instagram</a>
-        <a href="https://www.linkedin.com/in/trevorhillis/" target="_blank">LinkedIn</a>
-        <a href="https://www.imdb.com/title/tt29475615/?ref_=ra_sb_ln" target="_blank">IMDb</a>
-        <a href="mailto:thillis12@gmail.com">Email</a>
+        <a href="https://www.instagram.com/trev_hillis/?hl=en" class="instagram" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/trevorhillis/" class="linkedin" target="_blank">LinkedIn</a>
+        <a href="https://www.imdb.com/title/tt29475615/?ref_=ra_sb_ln" class="imdb" target="_blank">IMDb</a>
+        <a href="mailto:thillis12@gmail.com" class="email">Email</a>
     </div>
 </body>
 </html>
