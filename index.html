@@ -17,7 +17,6 @@
             text-align: left; /* Align text to the left */
             margin: 0;
             padding: 0;
-            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -34,21 +33,24 @@
             margin-bottom: 20px; /* Added margin for better separation */
         }
         .stick-figure {
-            max-width: 100%; /* Set maximum width to fill its container */
-            height: auto; /* Automatically adjust height while maintaining aspect ratio */
-            display: block; /* Ensure it's displayed as a block element */
-            margin: 0 auto; /* Center the image horizontally */
+            max-width: 100%; /* Limit the image width */
+            height: auto; /* Automatically adjust height */
+            margin-bottom: 20px; /* Added margin for better separation */
+        }
+        .documentary-link {
+            color: #6495ED; /* Dark blue hyperlink color */
+            text-decoration: none; /* Remove underline */
         }
     </style>
 </head>
 <body>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZxemZuMHdidzgwNXI2cTRmanZ5cmcxNnY0ZHZ1ZjdvOHc5aXNndCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XHMthTK1EjZKjmDOyz/giphy.gif" alt="Stick figure graphic" class="stick-figure"> <!-- Stick figure GIF -->
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZxemZuMHdidzgwNXI2cTRmanZ5cmcxNnY0ZHZ1ZjdvOHc5aXNndCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XHMthTK1EjZKjmDOyz/giphy.gif" alt="Stick figure graphic" class="stick-figure"> <!-- Placeholder image, replace with your stick figure graphic -->
     <div>
         <h1>Hello!</h1>
         <p>I'm Trevor. I like trying challenging things with interesting people.</p>
         <p>Right now, I lead a product category at a YC robotics startup.</p>
-        <p>Before that, I worked at Amazon, Google, and played professional football in Mexico.</p>
-        <p>I also directed a documentary <a href="http://www.saltadocumentary.com" target="_blank">documentary</a> about playing football in Mexico.<p>
+        <p>Before that, I worked at Amazon, Google, and played professional football in <a href="http://www.saltadocumentary.com" class="documentary-link" target="_blank">Mexico</a>.</p>
+        <p>I directed a documentary about playing football in Mexico that premiered at a film festival in NYC. <a href="http://www.saltadocumentary.com" class="documentary-link" target="_blank">Learn more</a>.</p>
     </div>
 </body>
 </html>
