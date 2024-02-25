@@ -16,11 +16,11 @@
             font-family: 'CoolFont', Arial, sans-serif; /* Use the custom font as a fallback */
             text-align: left; /* Align text to the left */
             margin: 0;
-            padding: 0;
+            padding: 20px; /* Added padding for better spacing */
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 20px; /* Added padding for better spacing */
+            justify-content: space-between;
+            height: 100vh;
         }
         h1 {
             font-size: 3rem;
@@ -33,24 +33,24 @@
             margin-bottom: 20px; /* Added margin for better separation */
         }
         .stick-figure {
-            max-width: 100%; /* Limit the image width */
+            width: 100px; /* Set a specific width for the stick figure */
             height: auto; /* Automatically adjust height */
-            margin-bottom: 20px; /* Added margin for better separation */
+            align-self: flex-end; /* Align stick figure to the bottom of the page */
         }
-        .documentary-link {
-            color: #6495ED; /* Dark blue hyperlink color */
+        a {
+            color: #666; /* Off-shade black hyperlink color */
             text-decoration: none; /* Remove underline */
         }
     </style>
 </head>
 <body>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZxemZuMHdidzgwNXI2cTRmanZ5cmcxNnY0ZHZ1ZjdvOHc5aXNndCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XHMthTK1EjZKjmDOyz/giphy.gif" alt="Stick figure graphic" class="stick-figure"> <!-- Placeholder image, replace with your stick figure graphic -->
     <div>
         <h1>Hello!</h1>
         <p>I'm Trevor. I like trying challenging things with interesting people.</p>
         <p>Right now, I lead a product category at a YC robotics startup.</p>
-        <p>Before that, I worked at Amazon, Google, and played professional football in <a href="http://www.saltadocumentary.com" class="documentary-link" target="_blank">Mexico</a>.</p>
-        <p>I directed a documentary about playing football in Mexico that premiered at a film festival in NYC. <a href="http://www.saltadocumentary.com" class="documentary-link" target="_blank">Learn more</a>.</p>
+        <p>Before that, I worked at Amazon, Google, and played professional football in Mexico.</p>
+        <p>I directed a <a href="http://www.saltadocumentary.com" target="_blank">documentary</a> about playing football in Mexico that premiered at a film festival in NYC.</p>
     </div>
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZxemZuMHdidzgwNXI2cTRmanZ5cmcxNnY0ZHZ1ZjdvOHc5aXNndCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XHMthTK1EjZKjmDOyz/giphy.gif" alt="Stick figure graphic" class="stick-figure"> <!-- Placeholder image, replace with your stick figure graphic -->
 </body>
 </html>
