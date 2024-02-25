@@ -34,18 +34,21 @@
             margin-bottom: 20px; /* Added margin for better separation */
         }
         .stick-figure {
-            width: 100%; /* Set width to fill the entire width of the viewport */
-            height: auto; /* Automatically adjust height */
+            max-width: 100%; /* Set maximum width to fill its container */
+            height: auto; /* Automatically adjust height while maintaining aspect ratio */
+            display: block; /* Ensure it's displayed as a block element */
+            margin: 0 auto; /* Center the image horizontally */
         }
     </style>
 </head>
 <body>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZxemZuMHdidzgwNXI2cTRmanZ5cmcxNnY0ZHZ1ZjdvOHc5aXNndCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XHMthTK1EjZKjmDOyz/giphy.gif" alt="Stick figure graphic" class="stick-figure"> <!-- Placeholder image, replace with your stick figure graphic -->
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZxemZuMHdidzgwNXI2cTRmanZ5cmcxNnY0ZHZ1ZjdvOHc5aXNndCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XHMthTK1EjZKjmDOyz/giphy.gif" alt="Stick figure graphic" class="stick-figure"> <!-- Stick figure GIF -->
     <div>
         <h1>Hello!</h1>
         <p>I'm Trevor. I like trying challenging things with interesting people.</p>
         <p>Right now, I lead a product category at a YC robotics startup.</p>
         <p>Before that, I worked at Amazon, Google, and played professional football in Mexico.</p>
+        <p>I also directed a documentary <a href="http://www.saltadocumentary.com" target="_blank">documentary</a> about playing football in Mexico.<p>
     </div>
 </body>
 </html>
