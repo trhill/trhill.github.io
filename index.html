@@ -5,19 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> T B H </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+    <!-- Link to Titillium Web font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Juana Thin'; /* Define font family name */
-            src: url('https://raw.githubusercontent.com/trhill/trhill.github.io/fbbe78b9b958e375f3bd95d7218774d31f1244b9/Fontspring-DEMO-juana-extralightit.otf') format('opentype'); /* Link to the font file */
-            /* You can include other font formats here for cross-browser compatibility */
-            font-weight: normal;
-            font-style: normal;
-        }
-
         body {
             background-color: #000; /* Black background */
             color: #fff; /* Light text */
-            font-family: 'Juana Thin', Arial, sans-serif; /* Use Juana Thin font as primary */
+            font-family: 'Titillium Web', Arial, sans-serif; /* Use Titillium Web font as primary */
             text-align: center; /* Align text to the center */
             margin: 0;
             padding: 20px; /* Added padding for better spacing */
@@ -30,7 +24,6 @@
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
-            font-family: 'Juana Thin', Arial, sans-serif; /* Use Juana Thin font for h1 */
             font-weight: bold; /* Bold font for emphasis */
         }
 
@@ -63,29 +56,13 @@
         }
 
         a.documentary {
-            color: #000; /* Set hyperlink color */
-            text-decoration: none; /* Remove default underline */
-            position: relative; /* Set position to relative for pseudo-element */
-        }
-
-        a.documentary::after {
-            content: ""; /* Add pseudo-element */
-            position: absolute; /* Set position to absolute */
-            left: 0; /* Align with the text */
-            bottom: -2px; /* Adjust to desired distance from text */
-            width: 100%; /* Full width */
-            height: 1px; /* Set height to create underline */
-            background-color: #000; /* Set underline color */
-            transition: height 0.3s ease; /* Add transition for smooth effect */
-        }
-
-        a.documentary:hover::after {
-            height: 3px; /* Increase height on hover to create smooth underline effect */
+            color: #f3f3f3; /* Off-white color for the documentary hyperlink */
+            text-decoration: none; /* Remove underline from the documentary hyperlink */
         }
     </style>
 </head>
 <body>
-    <h1>Hello</h1>
+    <h1>Hello.</h1>
     <p>I'm Trevor. I like trying challenging things with interesting people.</p>
     <p>Right now, I lead a product category at a YC robotics startup.</p>
     <p>Before that, I worked at Amazon, Google, and played professional football in Mexico.</p>
