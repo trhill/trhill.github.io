@@ -4,76 +4,601 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> T B H </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
-    <!-- Link to Titillium Web font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.cdnfonts.com/css/sohne" rel="stylesheet">
     <style>
         body {
-            background-color: #000; /* Black background */
-            color: #fff; /* Light text */
-            font-family: 'Titillium Web', Arial, sans-serif; /* Use Titillium Web font as primary */
-            text-align: center; /* Align text to the center */
+            background-color: #000;
+            color: #fff;
+            font-family: 'Söhne', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            text-align: center;
             margin: 0;
-            padding: 20px; /* Added padding for better spacing */
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            height: 100vh;
+            align-items: center;
+            position: relative;
         }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: bold; /* Bold font for emphasis */
-        }
-
-        p {
-            font-size: 1.5rem;
-            line-height: 1.6; /* Slightly increased line height for better readability */
-            margin-bottom: 20px; /* Added margin for better separation */
+        .stick-figure-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
         }
 
         .stick-figure {
-            width: 100px; /* Set a specific width for the stick figure */
-            height: auto; /* Automatically adjust height */
-            margin: 0 auto; /* Center the stick figure horizontally */
+            width: 80vw; /* Much bigger - takes up most of the viewport */
+            max-width: 800px;
+            height: auto;
+            margin: 0 auto;
+            /* Remove any glow/border effects */
+            filter: none;
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        
+
+
+        .content-section {
+            padding: 80px 20px 100px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+            position: relative;
+        }
+
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 0.9;
+        }
+
+        .intro-text {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            opacity: 0.95;
+        }
+
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            opacity: 0.8;
+            letter-spacing: 0.01em;
+        }
+
+        .contact-line {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            opacity: 0.8;
+            letter-spacing: 0.01em;
+        }
+
+        .contact-link {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            transition: border-bottom 0.3s ease;
+        }
+
+        .contact-link:hover {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .additional-content {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .additional-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #f3f3f3;
+        }
+
+        .additional-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: 300;
         }
 
         .social-icons {
-            margin-top: 20px;
+            margin-top: 40px;
         }
 
         .social-icons a {
             display: inline-block;
-            margin: 0 10px;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
+            margin: 0 15px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
             text-align: center;
-            font-size: 1.5rem;
-            color: #fff; /* Set color to white */
-            text-decoration: none; /* Remove underline from hyperlinks */
+            font-size: 1.8rem;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
         a.documentary {
-            color: #f3f3f3; /* Off-white color for the documentary hyperlink */
-            text-decoration: none; /* Remove underline from the documentary hyperlink */
+            color: #f3f3f3;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(243, 243, 243, 0.3);
+            transition: border-bottom 0.3s ease;
+        }
+
+        a.documentary:hover {
+            border-bottom: 1px solid rgba(243, 243, 243, 0.8);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            background-color: #000;
+            position: relative;
+        }
+
+        .projects-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+            pointer-events: none;
+        }
+
+        .projects-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+            line-height: 0.9;
+            color: #fff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 300px);
+            gap: 2rem;
+            max-width: 1000px;
+            width: 100%;
+            margin: 3rem auto 0 auto;
+            justify-content: center;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .project-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: #fff;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            opacity: 0.8;
+            letter-spacing: 0.01em;
+        }
+
+        .project-status {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-weight: 300;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            background-color: #000;
+            position: relative;
+        }
+
+        .contact-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+            pointer-events: none;
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+            line-height: 0.9;
+            color: #fff;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #fff;
+            opacity: 0.9;
+        }
+
+        .form-input,
+        .form-textarea {
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-submit {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .form-submit:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            opacity: 0.8;
+            animation: bounce 2s infinite;
+            text-align: center;
+            z-index: 10;
+        }
+
+
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stick-figure {
+                width: 90vw;
+                max-width: 400px;
+            }
+            
+            h1 {
+                font-size: 3.5rem;
+                letter-spacing: -0.015em;
+            }
+            
+            .intro-text {
+                font-size: 1.3rem;
+                letter-spacing: -0.005em;
+            }
+            
+            .bio-text {
+                font-size: 1rem;
+                letter-spacing: 0.005em;
+            }
+            
+            .projects-title {
+                font-size: 2.5rem;
+                letter-spacing: -0.015em;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 300px;
+                gap: 1.5rem;
+                justify-content: center;
+            }
+            
+            .project-card {
+                padding: 1.5rem;
+            }
+            
+            .project-name {
+                font-size: 1.3rem;
+            }
+            
+            .contact-title {
+                font-size: 2.5rem;
+                letter-spacing: -0.015em;
+            }
+            
+            .contact-form {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Hello.</h1>
-    <p>I'm Trevor. I like trying challenging things with interesting people.</p>
-    <p>Right now, I lead a product category at a YC robotics startup.</p>
-    <p>Before that, I worked at Amazon, Google, and played professional football in Mexico.</p>
-    <p>After that, but before right now, I directed a <a href="http://www.saltadocumentary.com" target="_blank" class="documentary">documentary</a> that premiered at a film festival in NYC.</p>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZxemZuMHdidzgwNXI2cTRmanZ5cmcxNnY0ZHZ1ZjdvOHc5aXNndCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XHMthTK1EjZKjmDOyz/giphy.gif" alt="Stick figure graphic" class="stick-figure">
-    <div class="social-icons">
-        <a href="mailto:thillis12@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/trevorhillis/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/trev_hillis/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.imdb.com/title/tt29475615/?ref_=ra_sb_ln" target="_blank"><i class="fab fa-imdb"></i></a>
+    <div class="hero-section">
+        <div class="stick-figure-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZxemZuMHdidzgwNXI2cTRmanZ5cmcxNnY0ZHZ1ZjdvOHc5aXNndCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XHMthTK1EjZKjmDOyz/giphy.gif" alt="Stick figure graphic" class="stick-figure">
+        </div>
+        <div class="scroll-indicator">↓</div>
     </div>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome JS -->
+
+    <div class="content-section" id="content">
+        <div class="content-wrapper">
+            <h1>Hello.</h1>
+            
+            <p class="intro-text">I'm Trevor. I like building new things with interesting people.</p>
+            
+            <p class="bio-text">Right now, I lead a product category at a YC robotics startup.</p>
+            <p class="bio-text">Before right now, I worked at Amazon, Google, and played professional (American) football in Mexico.</p>
+            
+            <p class="contact-line">Want to chat? <a href="#contact" class="contact-link">Contact me</a> or connect with me on <a href="https://www.linkedin.com/in/trevorhillis/" target="_blank" class="contact-link">LinkedIn</a>.</p>
+            
+            <div class="social-icons">
+                <a href="mailto:thillis12@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/trevorhillis/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/trev_hillis/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.imdb.com/title/tt29475615/?ref_=ra_sb_ln" target="_blank"><i class="fab fa-imdb"></i></a>
+            </div>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="projects-section" id="projects">
+        <div class="content-wrapper">
+            <h2 class="projects-title">Personal Projects</h2>
+            <div class="projects-grid">
+                <a href="https://www.imdb.com/title/tt29475615/" target="_blank" class="project-card">
+                    <h3 class="project-name">Salta Documentary</h3>
+                    <p class="project-description">I agreed to make a documentary about the top Professional Football League in Mexico in exchange for an invite to tryout (I had never played football before). This is that documentary. </p>
+                </a>
+                
+                                  <a href="https://painflow.vercel.app/" target="_blank" class="project-card">
+                      <h3 class="project-name">PainFlow</h3>
+                      <p class="project-description">A personal back pain tracking tool to monitor and analyze back pain patterns, triggers, and recovery progress over time.</p>
+                  </a>
+                
+                                  <a href="https://github.com/trhill/trhill.github.io/tree/master" target="_blank" class="project-card">
+                      <h3 class="project-name">This Site!</h3>
+                      <p class="project-description">A minimalist personal portfolio showcasing my work and story, built from scratch with clean HTML, CSS, and thoughtful typography. Totally unbiased review.</p>
+                  </a>
+                
+            </div>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <div class="content-wrapper">
+            <h2 class="contact-title">Get in Touch</h2>
+            <form class="contact-form" action="mailto:thillis12@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Auto-scroll functionality after 3 loops
+        let loopCount = 0;
+        let lastScrollTop = 0;
+        let autoScrollTimeout;
+        
+
+        
+        // Function to scroll to content
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+            document.getElementById('content').classList.add('visible');
+        }
+        
+        // Function to scroll back to top
+        function scrollToTop() {
+            window.scrollTo({ 
+                top: 0, 
+                behavior: 'smooth' 
+            });
+            document.getElementById('content').classList.remove('visible');
+        }
+        
+        // Monitor scroll position to detect loops
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Detect if user scrolled to bottom and back to top (one loop)
+            if (scrollTop === 0 && lastScrollTop > 100) {
+                loopCount++;
+                
+                // After 3 loops, start auto-cycling
+                if (loopCount >= 3) {
+                    startAutoCycle();
+                }
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Auto-cycle between stick figure and content
+        function startAutoCycle() {
+            let isShowingContent = false;
+            
+            function cycle() {
+                if (isShowingContent) {
+                    scrollToTop();
+                    isShowingContent = false;
+                } else {
+                    scrollToContent();
+                    isShowingContent = true;
+                }
+                
+                // Continue cycling every 8 seconds (slowed down 50%)
+                autoScrollTimeout = setTimeout(cycle, 8000);
+            }
+            
+            // Start the cycle
+            setTimeout(cycle, 4000);
+        }
+        
+        // Manual scroll to content (for immediate access)
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            scrollToContent();
+        });
+        
+        // Reset loop count when user manually scrolls
+        window.addEventListener('wheel', function() {
+            clearTimeout(autoScrollTimeout);
+            loopCount = 0;
+        });
+        
+        // Show content on page load after a brief delay
+        setTimeout(function() {
+            document.getElementById('content').classList.add('visible');
+        }, 1000);
+        
+
+    </script>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
