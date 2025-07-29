@@ -194,6 +194,7 @@
             height: 100px;
             background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
             pointer-events: none;
+            z-index: 1;
         }
 
         .projects-title {
@@ -365,7 +366,8 @@
             opacity: 0.8;
             animation: bounce 2s infinite;
             text-align: center;
-            z-index: 10;
+            z-index: 20;
+            cursor: pointer;
         }
 
 
@@ -533,6 +535,27 @@
             document.getElementById('content').classList.add('visible');
         }
         
+        // Function to scroll to projects
+        function scrollToProjects() {
+            const projectsSection = document.getElementById('projects');
+            const projectsTop = projectsSection.offsetTop;
+            const projectsHeight = projectsSection.offsetHeight;
+            const windowHeight = window.innerHeight;
+            
+            // Scroll to show the bottom portion of the projects section
+            window.scrollTo({
+                top: projectsTop + projectsHeight - windowHeight + 100, // 100px padding
+                behavior: 'smooth'
+            });
+        }
+        
+        // Function to scroll to contact
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+        
         // Function to scroll back to top
         function scrollToTop() {
             window.scrollTo({ 
@@ -580,9 +603,22 @@
             setTimeout(cycle, 4000);
         }
         
-        // Manual scroll to content (for immediate access)
-        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+        // Manual scroll functionality for each indicator
+        const indicators = document.querySelectorAll('.scroll-indicator');
+        
+        // First indicator (hero section) - scrolls to content
+        indicators[0].addEventListener('click', function() {
             scrollToContent();
+        });
+        
+        // Second indicator (content section) - scrolls to projects
+        indicators[1].addEventListener('click', function() {
+            scrollToProjects();
+        });
+        
+        // Third indicator (projects section) - scrolls to contact
+        indicators[2].addEventListener('click', function() {
+            scrollToContact();
         });
         
         // Reset loop count when user manually scrolls
