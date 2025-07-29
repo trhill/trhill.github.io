@@ -292,7 +292,7 @@
         }
 
         .contact-form {
-            max-width: 500px;
+            max-width: 700px;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -322,6 +322,13 @@
             font-size: 1rem;
             font-family: inherit;
             transition: all 0.3s ease;
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            width: 120%;
+            transform: translateX(-8.33%);
+            resize: vertical;
         }
 
         .form-input:focus,
@@ -493,7 +500,7 @@
     <div class="contact-section" id="contact">
         <div class="content-wrapper">
             <h2 class="contact-title">Get in Touch</h2>
-            <form class="contact-form" action="mailto:thillis12@gmail.com" method="post" enctype="text/plain">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" id="name" name="name" class="form-input" required>
@@ -509,7 +516,7 @@
                     <input type="email" id="email" name="email" class="form-input" required>
                 </div>
                 
-                <div class="form-group">
+                <div class="form-group message-group">
                     <label for="message" class="form-label">Message</label>
                     <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
                 </div>
@@ -631,6 +638,22 @@
         setTimeout(function() {
             document.getElementById('content').classList.add('visible');
         }, 1000);
+
+        // Handle contact form submission - Simple mailto approach
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Create email body
+            const emailBody = `Name: ${name}%0D%0A%0D%0APhone: ${phone}%0D%0A%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            
+            // Open email client
+            window.location.href = `mailto:thillis12@gmail.com?subject=Contact from ${name}&body=${emailBody}`;
+        });
         
 
     </script>
